@@ -2,15 +2,17 @@ package attractions;
 
 import org.junit.Before;
 import org.junit.Test;
+import people.Visitor;
 
 import static org.junit.Assert.assertEquals;
 
 public class PlaygroundTest {
     Playground playground;
-
+    Visitor visitor;
     @Before
     public void setUp() throws Exception {
         playground = new Playground("Fun Zone", 7);
+        visitor = new Visitor(17,162,500);
     }
 
     @Test
@@ -27,4 +29,10 @@ public class PlaygroundTest {
     public void hasVisitCount() {
         assertEquals(0, playground.getVisitCount());
     }
+    @Test
+    public void checkAgeCriteria() {
+        assertEquals(true, playground.isAllowedTo(visitor));
+    }
+
+
 }
