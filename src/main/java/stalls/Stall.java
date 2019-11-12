@@ -1,6 +1,8 @@
 package stalls;
 
-public abstract class Stall {
+import behaviours.IReviewed;
+
+public abstract class Stall  {
 
     private String name;
     private String ownerName;
