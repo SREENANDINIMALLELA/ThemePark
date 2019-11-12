@@ -1,4 +1,5 @@
 import attractions.Attraction;
+import behaviours.IReviewed;
 import stalls.Stall;
 
 import java.util.ArrayList;
@@ -6,9 +7,16 @@ import java.util.ArrayList;
 public class ThemePark {
     ArrayList<Attraction> attractions;
     ArrayList<Stall> stalls;
+    ArrayList<IReviewed> reviewed;
     public ThemePark(ArrayList<Attraction> attractions,ArrayList<Stall>stalls ){
         this.attractions=attractions;
         this.stalls=stalls;
+    }
+    public ArrayList<IReviewed> getAllReviewed(){
+        reviewed = new ArrayList<>();
+        reviewed.addAll(attractions);
+        reviewed.addAll(stalls);
+        return reviewed;
     }
 
 }

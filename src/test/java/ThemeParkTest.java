@@ -37,7 +37,6 @@ public class ThemeParkTest {
         stalls.add(iceCreamStall);
         stalls.add(tobaccoStall);
         stalls.add(candyflossStall);
-
         themePark = new ThemePark(attractions,stalls);
     }
     @Test
@@ -47,6 +46,11 @@ public class ThemeParkTest {
     @Test
     public void hasStalls(){
         assertEquals(3,stalls.size());
+    }
+
+    @Test
+    public void checkReviewedStalls(){
+        assertEquals(7,themePark.getAllReviewed().size());
     }
 
 
