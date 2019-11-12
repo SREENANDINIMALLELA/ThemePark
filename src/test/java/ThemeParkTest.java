@@ -1,6 +1,7 @@
 import attractions.*;
 import org.junit.Before;
 import org.junit.Test;
+import people.Visitor;
 import stalls.*;
 
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class ThemeParkTest {
     IceCreamStall iceCreamStall;
     TobaccoStall tobaccoStall;
     ArrayList<Stall>stalls;
+    Visitor visitor;
     @Before
 
     public void begore() {
@@ -38,6 +40,7 @@ public class ThemeParkTest {
         stalls.add(tobaccoStall);
         stalls.add(candyflossStall);
         themePark = new ThemePark(attractions,stalls);
+        visitor = new Visitor(15,200,200);
     }
     @Test
     public void hasAttractions(){
@@ -51,6 +54,11 @@ public class ThemeParkTest {
     @Test
     public void checkReviewedStalls(){
         assertEquals(7,themePark.getAllReviewed().size());
+    }
+    @Test
+    public void checkAddVisit(){
+        themePark.visit(visitor,rollerCoaster);
+        assertEquals(1,visitor.getVisitedlist());
     }
 
 
