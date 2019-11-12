@@ -61,9 +61,15 @@ public class ThemeParkTest {
         assertEquals(1,visitor.getVisitedlist());
     }
     @Test
-    public void getHashValues(){
+    public void getHashRatings(){
         System.out.println(themePark.getallReviews());
     }
 
+    @Test
+    public void checkVisitorsInPark(){
+        themePark.getAllAllowedFor(visitor);
+
+        System.out.println(themePark.getallReviews());
+    }
 
 }
