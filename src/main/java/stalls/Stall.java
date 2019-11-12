@@ -27,6 +27,6 @@ public abstract class Stall implements IReviewed {
     }
 
     public int getRating() {
-        return 0;
+        return 5;
     }
 }

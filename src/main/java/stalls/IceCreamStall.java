@@ -9,8 +9,5 @@ public class IceCreamStall extends Stall {
     }
 
 
-    @Override
-    public int getRating() {
-        return 0;
-    }
+
 }

@@ -60,6 +60,10 @@ public class ThemeParkTest {
         themePark.visit(visitor,rollerCoaster);
         assertEquals(1,visitor.getVisitedlist());
     }
+    @Test
+    public void getHashValues(){
+        System.out.println(themePark.getallReviews());
+    }
 
 
 }
