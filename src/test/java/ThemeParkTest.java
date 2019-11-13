@@ -20,6 +20,8 @@ public class ThemeParkTest {
     TobaccoStall tobaccoStall;
     ArrayList<Stall>stalls;
     Visitor visitor;
+    Visitor visitor1;
+    Visitor visitor2;
     @Before
 
     public void begore() {
@@ -41,6 +43,8 @@ public class ThemeParkTest {
         stalls.add(candyflossStall);
         themePark = new ThemePark(attractions,stalls);
         visitor = new Visitor(15,200,200);
+        visitor1 = new Visitor(10,200,200);
+        visitor2 = new Visitor(12, 200, 200);
     }
     @Test
     public void hasAttractions(){
@@ -56,9 +60,16 @@ public class ThemeParkTest {
         assertEquals(7,themePark.getAllReviewed().size());
     }
     @Test
-    public void checkAddVisit(){
+    public void checkVisitorVisit(){
         themePark.visit(visitor,rollerCoaster);
-        assertEquals(1,visitor.getVisitedlist());
+        themePark.visit(visitor,playground);
+        assertEquals(2,visitor.getVisitedlist());
+    }
+    @Test
+    public void checkVisitCountOfRollerCoaster(){
+        themePark.visit(visitor,rollerCoaster);
+        themePark.visit(visitor2,rollerCoaster);
+        assertEquals(2,rollerCoaster.getVisitCount());
     }
     @Test
     public void getHashRatings(){
@@ -66,10 +77,14 @@ public class ThemeParkTest {
     }
 
     @Test
-    public void checkVisitorsInPark(){
-        themePark.getAllAllowedFor(visitor);
-
-        System.out.println(themePark.getallReviews());
+    public void checkVisitorsAllowedlist(){
+        themePark.getAllReviewed();
+        System.out.println(themePark.getAllAllowedFor(visitor));
+    }
+    @Test
+    public void checkVisitorsUnderAgedAllowedlist(){
+        themePark.getAllReviewed();
+        System.out.println(themePark.getAllAllowedFor(visitor1));
     }
 
 }
